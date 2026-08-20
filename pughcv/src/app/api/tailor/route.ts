@@ -36,6 +36,8 @@ RULES:
 3. BULLET POINT FORMULA: Every bullet must start with a compelling past-tense action verb (e.g., "Spearheaded", "Architected", "Negotiated", "Streamlined") and focus on measurable outcomes, operations efficiency, or business impact.
 4. SUMMARY: Write a focused 2-3 sentence summary that positions the candidate directly for the target role title and its primary requirements.
 5. SKILLS CURATION: Select and prioritize the 8-12 most relevant skills from the master profile that match the job description.
+6. DATE FORMAT: Write every employment period using full month names and 4-digit years (e.g. "July 2004 - Present", "March 2001 - July 2004"). Never use numeric month/year abbreviations like "07/2004".
+7. ONE-PAGE BUDGET: The finished resume must fit on a single page. Weight detail toward the most recent and most relevant roles: 3-4 bullets for the two most recent roles, 2-3 for each older role. Keep every bullet to one or two lines (roughly 30 words maximum) and keep the summary to 2-3 sentences.
 `;
 
     const userPrompt = `
@@ -50,7 +52,7 @@ Tailor the candidate's resume strictly according to the schema provided.
 
     // 3. Generate Structured Resume Object
     const { object: tailoredResume } = await generateObject({
-      model: openai("gpt-4o-mini"),
+      model: openai("gpt-4o"),
       schema: ResumeSchema,
       system: systemPrompt,
       prompt: userPrompt,
@@ -61,11 +63,12 @@ Tailor the candidate's resume strictly according to the schema provided.
       success: true,
       data: tailoredResume,
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Tailor API Route Error:", err);
-    return NextResponse.json(
-      { error: err.message || "An error occurred while tailoring the resume." },
-      { status: 500 }
-    );
+    const message =
+      err instanceof Error && err.message
+        ? err.message
+        : "An error occurred while tailoring the resume.";
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }

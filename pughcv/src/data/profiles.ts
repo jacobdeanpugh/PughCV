@@ -6,6 +6,7 @@ export const DEAN_MASTER_PROFILE: ResumeData = {
     email: "deanpugh0720@gmail.com", 
     phone: "(949) 616 2058",
     location: "Riverside, CA",
+    linkedin: null,
   },
   professionalSummary:
     "Accomplished Operations, Logistics, and Sales Manager with extensive leadership across warehouse operations, international and domestic shipping, inventory control, and enterprise account management.",
@@ -99,6 +100,7 @@ export const MARC_MASTER_PROFILE: ResumeData = {
     email: "guitarmenace23@gmail.com",
     phone: "714-396-5071",
     location: "Anaheim, CA",
+    linkedin: null,
   },
   professionalSummary:
     "Senior Sales Executive and Custom Wheel Designer with over 35 years of industry excellence across B2B account management, custom wheel engineering, trade show execution, and warehouse distribution operations.",
