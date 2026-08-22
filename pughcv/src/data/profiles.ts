@@ -8,6 +8,7 @@ export const DEAN_MASTER_PROFILE: ResumeData = {
     location: "Riverside, CA",
     linkedin: null,
   },
+  headline: null,
   professionalSummary:
     "Accomplished Operations, Logistics, and Sales Manager with extensive leadership across warehouse operations, international and domestic shipping, inventory control, and enterprise account management.",
   skills: [
@@ -102,6 +103,7 @@ export const MARC_MASTER_PROFILE: ResumeData = {
     location: "Anaheim, CA",
     linkedin: null,
   },
+  headline: null,
   professionalSummary:
     "Senior Sales Executive and Custom Wheel Designer with over 35 years of industry excellence across B2B account management, custom wheel engineering, trade show execution, and warehouse distribution operations.",
   skills: [

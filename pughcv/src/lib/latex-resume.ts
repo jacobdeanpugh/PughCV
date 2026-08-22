@@ -223,7 +223,7 @@ export function renderResumeLatex(
   density: Density = DENSITY_LADDER[0]
 ): string {
   const name = escapeLatex(resume.fullName);
-  const headline = resume.experience[0]?.role;
+  const headline = resume.headline ?? resume.experience[0]?.role;
 
   const contactParts = [
     resume.contact.location ? escapeLatex(resume.contact.location) : null,
